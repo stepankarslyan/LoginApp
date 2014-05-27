@@ -10,7 +10,7 @@ app.use('/lib', express.static(__dirname + "/bower_components"));
 
 io.sockets.on("connection", function(socket) {
   socket.on("logging", function(data) {
-    socket.emit("greeting" ,{hello: "Welcome" + data});
+    socket.emit("error" ,{hello: "Welcome" + data});
       console.log(data);
   })
 });

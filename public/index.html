@@ -16,12 +16,11 @@
   <body ng-controller="loginController">
 
     <div class="container">
-
-
-
+      
       <div class="panel panel-default">
         <div class="panel-body">
           
+          <div ng-if="error != null" class="alert alert-warning">{{error}}</div>
           
           <form role="form">
             <div class="form-group">
