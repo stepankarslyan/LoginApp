@@ -9,8 +9,9 @@ app.use(express.static(__dirname + "/public"));
 app.use('/lib', express.static(__dirname + "/bower_components"));
 
 io.sockets.on("connection", function(socket) {
-  socket.on("logging", function(data) {
-    socket.emit("error" ,{hello: "Welcome" + data});
-      console.log(data);
+  socket.on("logging", function(user) {
+    socket.emit("error" ,"Failed login !");
+    //socket.emit("success" ,"http://www.google.fr");
+    //console.log(data);
   })
 });

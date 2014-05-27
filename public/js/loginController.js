@@ -2,20 +2,20 @@ angular.module("MobileApp").controller("loginController", function($scope) {
 
   var socket = io.connect("http://localhost");
   
-  socket.on("error", function(data) {
+  socket.on("error", function(error) {
     $scope.$apply(function() {
-      $scope.error = "Login failed!";
+      $scope.error = error;
     });
-    
+  });
+  
+  socket.on("success", function(url) {
+    document.location = url;
   });
   
   $scope.user = {email: "", password: ""};
   
   $scope.login = function() {
-    setTimeout(function() {        
-      socket.emit("logging", {data: $scope.user}); 
-      
-    }, 5000);
+    socket.emit("logging", $scope.user);      
   }
     
 });
